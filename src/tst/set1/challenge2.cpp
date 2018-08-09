@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-#include "../../xor.h"
 
 /**
  Write a function that takes two equal-length buffers and produces their XOR combination.
@@ -19,6 +18,16 @@ If your function works properly, then when you feed it the string:
 
 
 namespace {
+    TEST(XorTest, FixedXorAllZeroes) {
+        EXPECT_EQ(matasano::xor_hex("00", "00"), "00");
+    }
+
+    TEST(XorTest, XorContainerAllZeroes) {
+        std::vector<uint8_t> given {0,0};
+        std::vector<uint8_t> expected {0,0};
+        EXPECT_EQ(matasano::xor_container(given, given), expected);
+    }
+
     TEST(XorTest, FixedXorShouldCorrectlyXor) {
         auto result = matasano::xor_hex("1c0111001f010100061a024b53535009181c",
                                         "686974207468652062756c6c277320657965");
