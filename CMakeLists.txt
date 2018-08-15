@@ -34,11 +34,11 @@ add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
 project(MatasanoCpp)
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(${PROJECT_NAME} src/tst/set1/challenge1.cpp src/tst/set1/challenge2.cpp src/xor.h src/xor.cpp)
+add_executable(${PROJECT_NAME} src/tst/set1/challenge1.cpp src/tst/set1/challenge2.cpp src/xor.hpp src/xor.cpp src/tst/set1/challenge3.cpp src/text_evaluator.cpp src/text_evaluator.hpp src/xor_decryptor.cpp src/xor_decryptor.hpp)
 
 INCLUDE(FindPkgConfig)
 PKG_SEARCH_MODULE(BOTAN REQUIRED botan-2)
 
 include_directories(${BOTAN_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${BOTAN_LIBRARIES} gtest_main)
-add_test(NAME example_test COMMAND example)
+#add_test(NAME example_test COMMAND example)

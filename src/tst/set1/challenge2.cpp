@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../../xor.h"
+#include "../../xor.hpp"
 
 /**
  Write a function that takes two equal-length buffers and produces their XOR combination.

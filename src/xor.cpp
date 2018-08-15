@@ -1,4 +1,4 @@
-#include "xor.h"
+#include "xor.hpp"
 
 #include <botan-2/botan/hex.h>
 #include <stdexcept>
