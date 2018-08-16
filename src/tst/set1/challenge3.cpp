@@ -63,7 +63,7 @@ namespace {
         const std::string expected{"Cooking MC's like a pound of bacon"};
 
         XorDecryptor decryptor;
-        auto result = decryptor.decrypt_hex(input);
+        auto result = decryptor.decrypt_hex(input).text;
         EXPECT_EQ(expected, result);
     }
 }
