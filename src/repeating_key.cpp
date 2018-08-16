@@ -1,7 +1,3 @@
-//
-// Created by rumcajs on 8/16/18.
-//
-
 #include <stdexcept>
 #include <vector>
 #include "repeating_key.hpp"
