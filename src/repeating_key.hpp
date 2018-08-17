@@ -13,7 +13,7 @@ public:
 
     /**
      * gets the next key character and rotates
-     * @return
+     * @return next key character
      */
     uint8_t next();
 
