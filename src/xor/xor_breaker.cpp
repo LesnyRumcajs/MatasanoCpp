@@ -67,7 +67,8 @@ std::vector<XorBreaker::KeySizeCandidate> XorBreaker::generate_keysize_candidate
         key_size_candidates.emplace_back(candidate);
     }
 
-    std::sort(key_size_candidates.begin(), key_size_candidates.end(), [](const auto &a, const auto &b) {
+    std::nth_element(key_size_candidates.begin(), key_size_candidates.begin() + candidates_count,
+                     key_size_candidates.end(), [](const auto &a, const auto &b) {
         return a.normalized_distance < b.normalized_distance;
     });
 
