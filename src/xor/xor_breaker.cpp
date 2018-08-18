@@ -17,18 +17,12 @@ XorBreaker::PlaintextCandidate XorBreaker::decrypt() const {
         throw std::runtime_error("No ciphertext to decrypt!");
     }
 
-    XorDecryptor decryptor;
+
     PlaintextCandidate result;
 
     auto keysize_candidates = generate_keysize_candidates(6);
     for (const auto &keysize_candidate : keysize_candidates) {
-        auto transposed = get_ciphertext_in_blocks(keysize_candidate.key_size);
-
-        std::string key;
-        for (const auto &block : transposed) {
-            auto partial_result = decryptor.decrypt(block);
-            key += static_cast<char>(partial_result.key);
-        }
+        std::string key = calculate_candidate_key(keysize_candidate.key_size);
 
         XorEncryptor encryptor(key);
         auto candidate = encryptor.decrypt({m_ciphertext.begin(), m_ciphertext.end()});
@@ -40,6 +34,17 @@ XorBreaker::PlaintextCandidate XorBreaker::decrypt() const {
     }
 
     return result;
+}
+
+std::string XorBreaker::calculate_candidate_key(size_t keysize) const {
+    auto transposed = get_ciphertext_in_blocks(keysize);
+
+    std::string key;
+    for (const auto &block : transposed) {
+        auto partial_result = XorDecryptor().decrypt(block);
+        key += static_cast<char>(partial_result.key);
+    }
+    return key;
 }
 
 std::vector<std::vector<uint8_t>> XorBreaker::get_ciphertext_in_blocks(size_t block_size) const {
@@ -76,11 +81,13 @@ std::vector<XorBreaker::KeySizeCandidate> XorBreaker::generate_keysize_candidate
 }
 
 double XorBreaker::calculate_normalized_distance(size_t block_size) const {
-    if (m_ciphertext.size() < 4 * block_size) {
+    static const int BLOCK_COUNT{4};
+
+    if (m_ciphertext.size() < BLOCK_COUNT * block_size) {
         throw std::invalid_argument("Ciphertext too small for given block size");
     }
 
-    std::array<std::vector<uint8_t>, 4> blocks;
+    std::array<std::vector<uint8_t>, BLOCK_COUNT> blocks;
     blocks[0] = {m_ciphertext.begin(), m_ciphertext.begin() + block_size};
     blocks[1] = {m_ciphertext.begin() + block_size, m_ciphertext.begin() + 2 * block_size};
     blocks[2] = {m_ciphertext.begin() + 2 * block_size, m_ciphertext.begin() + 3 * block_size};

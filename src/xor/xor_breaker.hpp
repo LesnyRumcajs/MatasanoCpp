@@ -46,6 +46,7 @@ private:
 
     double calculate_normalized_distance(size_t block_size) const;
 
+    std::string calculate_candidate_key(size_t keysize) const;
 };
 
 
