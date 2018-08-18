@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "../../text_evaluator.hpp"
-#include "../../xor/xor_decryptor.hpp"
+#include "../../src/text_evaluator.hpp"
+#include "../../src/xor/xor_decryptor.hpp"
 /**
  * Single-byte XOR cipher
 */

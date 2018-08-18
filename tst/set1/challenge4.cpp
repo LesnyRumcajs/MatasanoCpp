@@ -1,6 +1,6 @@
 #include <fstream>
 #include "gtest/gtest.h"
-#include "../../xor/xor_decryptor.hpp"
+#include "../../src/xor/xor_decryptor.hpp"
 
 /**
  * Detect single-character XOR

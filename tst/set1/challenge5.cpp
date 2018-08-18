@@ -1,7 +1,7 @@
 #include <botan/hex.h>
 #include "gtest/gtest.h"
-#include "../../xor/xor_encryptor.hpp"
-#include "../../repeating_key.hpp"
+#include "../../src/xor/xor_encryptor.hpp"
+#include "../../src/repeating_key.hpp"
 
 /**
  * Implement repeating-key XOR
