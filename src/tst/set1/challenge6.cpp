@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include "../../crypto_functions.hpp"
-#include "../../xor_breaker.hpp"
+#include "../../xor/xor_breaker.hpp"
 
 namespace {
     TEST(HammingDistanceTest, EmptyContainersShouldReturnZero) {

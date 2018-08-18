@@ -3,10 +3,10 @@
 #include <utility>
 #include <botan/hex.h>
 #include "xor_breaker.hpp"
-#include "crypto_functions.hpp"
+#include "../crypto_functions.hpp"
 #include "xor_decryptor.hpp"
 #include "xor_encryptor.hpp"
-#include "text_evaluator.hpp"
+#include "../text_evaluator.hpp"
 
 void XorBreaker::load_from_base64(const std::string &ciphertext) {
     m_ciphertext = Botan::base64_decode(ciphertext);

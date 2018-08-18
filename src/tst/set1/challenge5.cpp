@@ -1,6 +1,6 @@
 #include <botan/hex.h>
 #include "gtest/gtest.h"
-#include "../../xor_encryptor.hpp"
+#include "../../xor/xor_encryptor.hpp"
 #include "../../repeating_key.hpp"
 
 /**

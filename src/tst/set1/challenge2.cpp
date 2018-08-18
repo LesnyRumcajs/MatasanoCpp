@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../../xor.hpp"
+#include "../../xor/xor.hpp"
 
 /**
  * Fixed XOR

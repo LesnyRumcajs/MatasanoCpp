@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include <botan/hex.h>
 #include "xor_encryptor.hpp"
-#include "repeating_key.hpp"
+#include "../repeating_key.hpp"
 
 XorEncryptor::XorEncryptor(const std::string &key) : m_key(key.begin(), key.end()) {
     if (key.empty()) {
