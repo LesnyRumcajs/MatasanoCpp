@@ -9,8 +9,8 @@
 bool ECBDetector::is_ecb_encrypted(const std::vector<uint8_t> &ciphertext, size_t block_size) {
     std::unordered_set<std::vector<uint8_t>, tools::stl::VectorHash<uint8_t>> blocks;
     for (auto it = ciphertext.begin(); it < ciphertext.end(); it += block_size) {
-        auto result = blocks.insert({it, it + block_size});
-        if (!result.second) {
+        auto has_inserted = blocks.insert({it, it + block_size}).second;
+        if (!has_inserted) {
             return true;
         }
     }
