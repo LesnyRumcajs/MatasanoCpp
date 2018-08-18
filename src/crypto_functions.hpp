@@ -26,6 +26,8 @@ namespace crypto::functions {
         }
         return distance;
     }
+
+    std::vector<uint8_t> aes_ecb_decrypt(const std::vector<uint8_t> &key, const std::vector<uint8_t> &ciphertext);
 }
 
 #endif //MATASANOCPP_CRYPTO_FUNCTIONS_HPP

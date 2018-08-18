@@ -35,7 +35,7 @@ project(MatasanoCpp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set( CMAKE_VERBOSE_MAKEFILE on )
-add_executable(${PROJECT_NAME} tst/set1/challenge1.cpp tst/set1/challenge2.cpp src/xor/xor.hpp src/xor/xor.cpp tst/set1/challenge3.cpp src/text_evaluator.cpp src/text_evaluator.hpp src/xor/xor_decryptor.cpp src/xor/xor_decryptor.hpp tst/set1/challenge4.cpp tst/set1/challenge5.cpp src/xor/xor_encryptor.cpp src/xor/xor_encryptor.hpp src/repeating_key.cpp src/repeating_key.hpp tst/set1/challenge6.cpp src/crypto_functions.hpp src/xor/xor_breaker.cpp src/xor/xor_breaker.hpp)
+add_executable(${PROJECT_NAME} tst/set1/challenge1.cpp tst/set1/challenge2.cpp src/xor/xor.hpp src/xor/xor.cpp tst/set1/challenge3.cpp src/text_evaluator.cpp src/text_evaluator.hpp src/xor/xor_decryptor.cpp src/xor/xor_decryptor.hpp tst/set1/challenge4.cpp tst/set1/challenge5.cpp src/xor/xor_encryptor.cpp src/xor/xor_encryptor.hpp src/repeating_key.cpp src/repeating_key.hpp tst/set1/challenge6.cpp src/crypto_functions.hpp src/xor/xor_breaker.cpp src/xor/xor_breaker.hpp tst/set1/challenge7.cpp src/crypto_functions.cpp)
 
 INCLUDE(FindPkgConfig)
 PKG_SEARCH_MODULE(BOTAN REQUIRED botan-2)
