@@ -12,6 +12,7 @@ XorDecryptor::PlaintextResult XorDecryptor::decrypt_hex(const std::string &hex_c
 XorDecryptor::PlaintextResult XorDecryptor::decrypt(const std::vector<uint8_t> &ciphertext) const {
     int max_score = -1;
     std::string result;
+    int best_key = 0;
 
     TextEvaluator evaluator;
     for (uint8_t key = 0x00; key <= 0xFE; ++key) {
@@ -24,10 +25,11 @@ XorDecryptor::PlaintextResult XorDecryptor::decrypt(const std::vector<uint8_t> &
         if (score > max_score) {
             max_score = score;
             result = candidate;
+            best_key = key;
         }
     }
 
-    return PlaintextResult(result, max_score);
+    return PlaintextResult(result, max_score, best_key);
 }
 
 XorDecryptor::PlaintextResult XorDecryptor::decrypt_best_hex(const std::vector<std::string> &ciphertexts) const {
@@ -39,7 +41,7 @@ XorDecryptor::PlaintextResult XorDecryptor::decrypt_best_hex(const std::vector<s
 }
 
 XorDecryptor::PlaintextResult XorDecryptor::decrypt_best(const std::vector<std::vector<uint8_t >> &ciphertexts) const {
-    PlaintextResult best_candidate("", -1);
+    PlaintextResult best_candidate("", -1, 0);
     for (const auto &ciphertext : ciphertexts) {
         auto candidate = decrypt(ciphertext);
         if (candidate.score > best_candidate.score) {
@@ -50,5 +52,6 @@ XorDecryptor::PlaintextResult XorDecryptor::decrypt_best(const std::vector<std::
     return best_candidate;
 }
 
-XorDecryptor::PlaintextResult::PlaintextResult(const std::string &text, int score) : text(text), score(score) {
+XorDecryptor::PlaintextResult::PlaintextResult(const std::string &text, int score, int key) : text(text), score(score),
+                                                                                              key(key) {
 }

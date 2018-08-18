@@ -10,8 +10,9 @@ public:
     struct PlaintextResult {
         std::string text;
         int score;
+        int key;
 
-        PlaintextResult(const std::string &text, int score);
+        PlaintextResult(const std::string &text, int score, int key);
     };
 
     /**

@@ -6,7 +6,7 @@
 
 namespace crypto::functions {
     /**
-     * Calculates the Hamming Distance between two strings
+     * Calculates the Hamming Distance (number of differing bits) between two strings
      * @tparam T container type
      * @param first first container
      * @param second second container

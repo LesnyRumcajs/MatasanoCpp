@@ -12,11 +12,19 @@ public:
     /**
      * Encrypt the plaintext with a repeating-key xor
      * @param plaintext
-     * @return hex-encoded ciphertext
+     * @return ciphertext
      */
-    std::string encrypt_hex(const std::string &plaintext) const;
+    std::vector<uint8_t> encrypt(const std::string &plaintext) const;
+
+    /**
+     * Decrypts the plaintext with a repeating-key xor
+     * @param ciphertext
+     * @return plaintext
+     */
+    std::string decrypt(const std::vector<uint8_t> &ciphertext) const;
 
 private:
+    std::vector<uint8_t> crypt(const std::vector<uint8_t> &ciphertext) const;
     const std::vector<uint8_t> m_key;
 };
 
