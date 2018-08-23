@@ -6,7 +6,7 @@
 #include <cstddef>
 
 namespace crypto::padding {
-    void add_PKCS7_padding(std::vector<uint8_t> &data, size_t block_size);
+    void add_PKCS7_padding(std::vector<uint8_t> &data, size_t block_size = 16);
 }
 
 #endif //MATASANOCPP_PADDING_HPP

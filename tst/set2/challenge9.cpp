@@ -3,7 +3,7 @@ Implement PKCS#7 padding
 */
 
 #include <gtest/gtest.h>
-#include "../../src/xor/padding.hpp"
+#include "../../src/padding.hpp"
 
 namespace {
     TEST(PaddingTest, GivenEmptyDataShouldFillWithBlockSize) {
