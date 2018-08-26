@@ -28,6 +28,8 @@ namespace crypto::functions {
     }
 
     std::vector<uint8_t> aes_ecb_decrypt(const std::vector<uint8_t> &key, const std::vector<uint8_t> &ciphertext);
+
+    std::vector<uint8_t> aes_ecb_encrypt(const std::vector<uint8_t> &key, std::vector<uint8_t> plaintext);
 }
 
 #endif //MATASANOCPP_CRYPTO_FUNCTIONS_HPP
