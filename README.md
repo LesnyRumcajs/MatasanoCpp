@@ -1,5 +1,4 @@
 # MatasanoCpp
-![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
 <br/>Matasano Crypto Challenge using C++
 
 https://cryptopals.com
